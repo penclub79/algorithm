@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author Shin
+ *
+ */
+module Note {
+}
