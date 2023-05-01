@@ -7,39 +7,44 @@ public class Note {
 	public String solution(String str)
 	{
 		String answer = new String();
-		String[] arr;
-		int max = Integer.MIN_VALUE;
-		int len = 0;
-		arr = str.split(" ");
+		char[] arr = null;
+		arr = str.toCharArray();
+		int len = str.length() - 1;
 
-		for (String x : arr)
+		for (int i = 0; i < str.length(); i++)
 		{
-			len = x.length();
-			if (len > max)
+			if ( !(97 <= (int)arr[i] && (int)arr[i] <= 122) && !(65 <= (int)arr[i] && (int)arr[i] <= 90))
 			{
-				max = len;
-				answer = x;
+				answer += arr[i];
+			}
+			else
+			{
+				while(len >= 0)
+				{
+					if ( !(97 <= (int)arr[len] && (int)arr[len] <= 122) && !(65 <= (int)arr[len] && (int)arr[len] <= 90))
+					{
+						len--;
+					}
+					else
+					{
+						answer += arr[len];
+						len--;
+						break;
+					}
+				}
 			}
 		}
-//		answer 	= arr[0].length() > arr[1].length() ? arr[0] : arr[1];
-//
-//		for (int i = 2; i < arr.length; i++)
-//		{
-//			if (arr[i].length() > answer.length())
-//				answer = arr[i];
-//		}
-
-
 		return answer;
 	}
 
 	public static void main(String[] args)
 	{
 		Note N = new Note();
-		Scanner in = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
+		String str = new String();
 
-		String str = in.nextLine();
+		str = sc.nextLine();
+
 		System.out.println(N.solution(str));
 	}
-
 }
