@@ -6,13 +6,6 @@ public class Note {
 
 	public String solution(String str)
 	{
-<<<<<<< HEAD
-		String answer = "YES";
-		char[] arr = new char[str.length() - 1];
-		arr = str.toCharArray();
-
-
-=======
 		String answer = new String();
 		char[] arr = null;
 		arr = str.toCharArray();
@@ -41,7 +34,6 @@ public class Note {
 				}
 			}
 		}
->>>>>>> f7dea9c6baa9ad863123d912293614ad485dc8b7
 		return answer;
 	}
 
@@ -50,16 +42,9 @@ public class Note {
 		Note N = new Note();
 		Scanner sc = new Scanner(System.in);
 		String str = new String();
-<<<<<<< HEAD
-		str = sc.nextLine();
-
-		System.out.println(N.solution(str));
-
-=======
 
 		str = sc.nextLine();
 
 		System.out.println(N.solution(str));
->>>>>>> f7dea9c6baa9ad863123d912293614ad485dc8b7
 	}
 }
