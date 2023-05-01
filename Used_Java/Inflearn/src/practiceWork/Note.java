@@ -6,28 +6,9 @@ public class Note {
 
 	public String solution(String str)
 	{
-		String answer = new String();
-		String[] arr;
-		int max = Integer.MIN_VALUE;
-		int len = 0;
-		arr = str.split(" ");
-
-		for (String x : arr)
-		{
-			len = x.length();
-			if (len > max)
-			{
-				max = len;
-				answer = x;
-			}
-		}
-//		answer 	= arr[0].length() > arr[1].length() ? arr[0] : arr[1];
-//
-//		for (int i = 2; i < arr.length; i++)
-//		{
-//			if (arr[i].length() > answer.length())
-//				answer = arr[i];
-//		}
+		String answer = "YES";
+		char[] arr = new char[str.length() - 1];
+		arr = str.toCharArray();
 
 
 		return answer;
@@ -36,10 +17,11 @@ public class Note {
 	public static void main(String[] args)
 	{
 		Note N = new Note();
-		Scanner in = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
+		String str = new String();
+		str = sc.nextLine();
 
-		String str = in.nextLine();
 		System.out.println(N.solution(str));
-	}
 
+	}
 }
