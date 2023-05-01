@@ -1,25 +1,45 @@
-package practiceWork;
+package Inflearn.src.practiceWork;
 
 import java.util.Scanner;
 
 public class Note {
-	
-	public int solution(String str, char t)
+
+	public String solution(String str)
 	{
-		int answer = 0;
-		
+		String answer = new String();
+		String[] arr;
+		int max = Integer.MIN_VALUE;
+		int len = 0;
+		arr = str.split(" ");
+
+		for (String x : arr)
+		{
+			len = x.length();
+			if (len > max)
+			{
+				max = len;
+				answer = x;
+			}
+		}
+//		answer 	= arr[0].length() > arr[1].length() ? arr[0] : arr[1];
+//
+//		for (int i = 2; i < arr.length; i++)
+//		{
+//			if (arr[i].length() > answer.length())
+//				answer = arr[i];
+//		}
+
+
 		return answer;
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args)
+	{
+		Note N = new Note();
 		Scanner in = new Scanner(System.in);
-		int input1 = in.nextInt();
-		int input2 = in.nextInt();
-		
-		System.out.println(solution());
-		return;
+
+		String str = in.nextLine();
+		System.out.println(N.solution(str));
 	}
 
 }
