@@ -3,29 +3,35 @@ package Inflearn.src.practiceWork;
 import java.util.Scanner;
 
 public class Note {
-
 	public static String solution(int num, String str)
 	{
 		String answer = "";
-		char[] strArr = new char[str.length() - 1];
-		int sum = 0;
-		int idx = 0;
-		int idxCnt = 0;
-		int powCnt = 0;
-		strArr = str.toCharArray();
+		String[] strArr = str.split(" ");
+		int[] arr = new int[num];
 
-		for (int i = 0; i < num; i++)
+		for (int i = 0; i < strArr.length; i++)
 		{
-			sum = 0;
-			powCnt = 0;
-			for (idx = idxCnt; idx < strArr.length * (i + 1) / num; idx++)
+			arr[i] = Integer.parseInt(strArr[i]);
+		}
+
+		for (int j = 0; j < arr.length; j++)
+		{
+			if (j == 0)
 			{
-				if (strArr[idx] == '#')
-					sum += Math.pow(2, 6 - powCnt);
-				powCnt++;
+				answer += arr[j];
+				answer += " ";
 			}
-			idxCnt = idx;
-			answer += (char)sum;
+
+			if (j == arr.length - 1)
+			{
+				break;
+			}
+
+			if (arr[j] < arr[j+1])
+			{
+				answer += arr[j+1];
+				answer += " ";
+			}
 		}
 
 		return answer;
@@ -34,10 +40,9 @@ public class Note {
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
-		String numStr = sc.nextLine();
-		int num = Integer.parseInt(numStr);
-		String str = sc.nextLine();
-
-		System.out.println(solution(num, str));
+		String N = sc.nextLine();
+		int num = Integer.parseInt(N);
+		String integers = sc.nextLine();
+		System.out.println(solution(num, integers));
 	}
 }
