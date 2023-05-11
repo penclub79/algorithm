@@ -4,16 +4,28 @@ import java.util.Scanner;
 
 public class Note {
 
-	public static int Fibo(int n)
+	public static int solution(int n)
 	{
-		if (n <= 1)
-			return n;
+		int answer = 0;
+		int cnt = 0;
+		int totalCnt = 0;
 
-		return Fibo(n );
+		for (int i = 2; i <= n; i++)
+		{
+			if (n % i == 0)
+				continue;
+			else
+				answer++;
+		}
+
+		return answer;
 	}
 
 	public static void main(String[] args)
 	{
-		System.out.println(	Fibo(5) );
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+
+		System.out.println(solution(num));
 	}
 }
